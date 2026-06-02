@@ -1,11 +1,8 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
   <head>
-    <!-- زبان و انکدینگ -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- عنوان و توضیحات برای سئو -->
     <title>امیررضا حیدری | برنامه‌نویس وب</title>
     <meta
       name="description"
@@ -16,24 +13,21 @@
       content="امیررضا حیدری, برنامه نویس وب, رزومه, نمونه کار, Front-end, TailwindCSS, HTML, JavaScript, SEO"
     />
     <meta name="author" content="Amirreza Heydari" />
-
-    <!-- اجازه ایندکس شدن -->
     <meta name="robots" content="index, follow" />
-
-    <!-- Open Graph برای شبکه‌های اجتماعی -->
     <meta property="og:title" content="امیررضا حیدری | برنامه‌نویس وب" />
     <meta
       property="og:description"
       content="نمایش رزومه، پروژه‌ها و توانمندی‌های امیررضا حیدری در حوزه برنامه‌نویسی وب."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://amirreza-heydari.clarotm.ir/" />
+    <meta
+      property="og:url"
+      content="https://amirrezaheydari81.github.io/resume/"
+    />
     <meta
       property="og:image"
-      content="https://amirreza-heydari.clarotm.ir/images/profile.jpg"
+      content="https://amirrezaheydari81.github.io/resume/images/profile.jpg"
     />
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="امیررضا حیدری | برنامه‌نویس وب" />
     <meta
@@ -42,934 +36,1770 @@
     />
     <meta
       name="twitter:image"
-      content="https://amirreza-heydari.clarotm.ir/images/profile.jpg"
+      content="https://amirrezaheydari81.github.io/resume/images/profile.jpg"
     />
+
     <link rel="stylesheet" href="./css/style.min.css" />
+
+    <style>
+      /* ===== متغیرهای رنگ و طراحی ===== */
+      :root {
+        --brand-base: #1a6b5c;
+        --brand-dark: #0f4438;
+        --brand-mid: #2e8b74;
+        --brand-light: #d4ede8;
+        --brand-accent: #e8a23a;
+        --brand-accent-light: #fef3dc;
+        --bg-main: #f7f9f8;
+        --bg-white: #ffffff;
+        --bg-card: #ffffff;
+        --text-dark: #1a2520;
+        --text-mid: #3d5248;
+        --text-soft: #6b8177;
+        --text-light: #9ab5ac;
+        --border-soft: #e0ece9;
+        --shadow-sm:
+          0 1px 3px rgba(26, 107, 92, 0.06), 0 2px 8px rgba(26, 107, 92, 0.04);
+        --shadow-md:
+          0 4px 16px rgba(26, 107, 92, 0.1), 0 2px 6px rgba(26, 107, 92, 0.06);
+        --shadow-lg:
+          0 8px 32px rgba(26, 107, 92, 0.14), 0 4px 12px rgba(26, 107, 92, 0.08);
+        --radius-sm: 10px;
+        --radius-md: 16px;
+        --radius-lg: 24px;
+        --radius-xl: 32px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "IRANSansXFaNum", "DoranFaNum", Tahoma, sans-serif;
+        background: var(--bg-main);
+        color: var(--text-dark);
+        line-height: 1.75;
+        font-size: 15px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ===== ناوبار ===== */
+      .navbar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border-soft);
+        transition: box-shadow 0.3s;
+      }
+      .navbar.scrolled {
+        box-shadow: var(--shadow-sm);
+      }
+      .navbar-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .navbar-logo {
+        font-weight: 800;
+        font-size: 16px;
+        color: var(--brand-dark);
+        letter-spacing: -0.5px;
+        white-space: nowrap;
+        text-decoration: none;
+      }
+      .navbar-logo span {
+        color: var(--brand-base);
+      }
+      .navbar-links {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        list-style: none;
+      }
+      .navbar-links a {
+        display: block;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-mid);
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          color 0.2s;
+        white-space: nowrap;
+      }
+      .navbar-links a:hover {
+        background: var(--brand-light);
+        color: var(--brand-dark);
+      }
+      .navbar-cta {
+        background: var(--brand-base) !important;
+        color: #fff !important;
+        padding: 7px 16px !important;
+      }
+      .navbar-cta:hover {
+        background: var(--brand-dark) !important;
+      }
+
+      /* همبرگر موبایل */
+      .burger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 8px;
+        transition: background 0.2s;
+        background: none;
+        border: none;
+      }
+      .burger:hover {
+        background: var(--brand-light);
+      }
+      .burger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--text-dark);
+        border-radius: 2px;
+        transition:
+          transform 0.3s,
+          opacity 0.3s;
+      }
+      .burger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .burger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .burger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+      .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border-soft);
+        padding: 12px 20px 20px;
+        box-shadow: var(--shadow-md);
+      }
+      .mobile-menu.open {
+        display: block;
+      }
+      .mobile-menu a {
+        display: block;
+        padding: 12px 16px;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--text-mid);
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          color 0.2s;
+        margin-bottom: 4px;
+      }
+      .mobile-menu a:hover {
+        background: var(--brand-light);
+        color: var(--brand-dark);
+      }
+      .mobile-menu a.cta {
+        background: var(--brand-base);
+        color: #fff;
+        margin-top: 8px;
+      }
+
+      /* ===== هیرو ===== */
+      .hero {
+        padding: 120px 24px 80px;
+        background: linear-gradient(
+          135deg,
+          #f0f9f6 0%,
+          #e8f4f0 40%,
+          #fef9f0 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        left: -60px;
+        width: 320px;
+        height: 320px;
+        background: radial-gradient(
+          circle,
+          rgba(46, 139, 116, 0.08) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        right: -40px;
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(
+          circle,
+          rgba(232, 162, 58, 0.07) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .hero-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 60px;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-img-wrap {
+        flex-shrink: 0;
+        position: relative;
+      }
+      .hero-img-wrap::before {
+        content: "";
+        position: absolute;
+        inset: -6px;
+        border-radius: 50%;
+        background: conic-gradient(
+          var(--brand-base),
+          var(--brand-accent),
+          var(--brand-base)
+        );
+        animation: spin 8s linear infinite;
+        opacity: 0.4;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .hero-img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        position: relative;
+        z-index: 1;
+        border: 4px solid #fff;
+        box-shadow: var(--shadow-lg);
+      }
+      .hero-badge {
+        position: absolute;
+        bottom: 8px;
+        left: 0;
+        background: var(--brand-accent);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 20px;
+        white-space: nowrap;
+        box-shadow: 0 2px 8px rgba(232, 162, 58, 0.4);
+        z-index: 2;
+      }
+      .hero-text {
+        flex: 1;
+      }
+      .hero-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--brand-light);
+        color: var(--brand-dark);
+        font-size: 12px;
+        font-weight: 600;
+        padding: 5px 12px;
+        border-radius: 20px;
+        margin-bottom: 18px;
+        letter-spacing: 0.3px;
+      }
+      .hero-tag::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        background: var(--brand-base);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.4);
+          opacity: 0.6;
+        }
+      }
+      .hero-name {
+        font-size: clamp(28px, 4vw, 44px);
+        font-weight: 800;
+        color: var(--brand-dark);
+        line-height: 1.2;
+        margin-bottom: 14px;
+        letter-spacing: -1px;
+      }
+      .hero-desc {
+        font-size: 15px;
+        color: var(--text-mid);
+        line-height: 1.8;
+        margin-bottom: 28px;
+        max-width: 480px;
+      }
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--brand-base);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 12px 24px;
+        border-radius: 12px;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+        box-shadow: 0 4px 16px rgba(26, 107, 92, 0.25);
+      }
+      .btn-primary:hover {
+        background: var(--brand-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px rgba(26, 107, 92, 0.35);
+      }
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        color: var(--brand-base);
+        font-size: 14px;
+        font-weight: 600;
+        padding: 11px 22px;
+        border-radius: 12px;
+        border: 2px solid var(--brand-light);
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .btn-secondary:hover {
+        border-color: var(--brand-base);
+        background: var(--brand-light);
+      }
+
+      /* ===== اعداد آمار ===== */
+      .stats-row {
+        margin-top: 36px;
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .stat-num {
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--brand-dark);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 12px;
+        color: var(--text-soft);
+        font-weight: 500;
+      }
+
+      /* ===== عنوان بخش‌ها ===== */
+      .section-title {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .section-title h2 {
+        font-size: clamp(20px, 3vw, 30px);
+        font-weight: 800;
+        color: var(--text-dark);
+        letter-spacing: -0.5px;
+        margin-bottom: 8px;
+      }
+      .section-title p {
+        font-size: 14px;
+        color: var(--text-soft);
+      }
+      .title-line {
+        display: inline-block;
+        width: 40px;
+        height: 4px;
+        background: linear-gradient(
+          to left,
+          var(--brand-base),
+          var(--brand-accent)
+        );
+        border-radius: 2px;
+        margin-bottom: 16px;
+      }
+
+      /* ===== کانتینر مشترک ===== */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .section {
+        padding: 80px 0;
+      }
+      .section-alt {
+        background: var(--bg-white);
+      }
+      .section-tinted {
+        background: linear-gradient(180deg, #f0f9f6 0%, var(--bg-main) 100%);
+      }
+
+      /* ===== کارت برند ===== */
+      .brands-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+      }
+      .brand-card {
+        background: var(--bg-white);
+        border: 1px solid var(--border-soft);
+        border-radius: var(--radius-md);
+        padding: 20px 18px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s,
+          border-color 0.25s;
+        cursor: default;
+      }
+      .brand-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--brand-light);
+      }
+      .brand-logo {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+        object-fit: cover;
+        flex-shrink: 0;
+        background: var(--bg-main);
+      }
+      .brand-info h3 {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 3px;
+        line-height: 1.3;
+      }
+      .brand-info p {
+        font-size: 11px;
+        color: var(--text-soft);
+        line-height: 1.4;
+      }
+
+      /* ===== نمونه کار ===== */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+      .portfolio-card {
+        background: var(--bg-white);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border-soft);
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .portfolio-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+      }
+      .portfolio-img-wrap {
+        position: relative;
+        overflow: hidden;
+      }
+      .portfolio-img-wrap img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .portfolio-card:hover .portfolio-img-wrap img {
+        transform: scale(1.06);
+      }
+      .portfolio-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(15, 68, 56, 0.85) 0%,
+          transparent 60%
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+        display: flex;
+        align-items: flex-end;
+        padding: 16px;
+      }
+      .portfolio-card:hover .portfolio-overlay {
+        opacity: 1;
+      }
+      .portfolio-overlay a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #fff;
+        color: var(--brand-dark);
+        font-size: 12px;
+        font-weight: 600;
+        padding: 7px 14px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+      .portfolio-overlay a:hover {
+        background: var(--brand-light);
+      }
+      .portfolio-body {
+        padding: 16px 18px;
+      }
+      .portfolio-body h3 {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-dark);
+        line-height: 1.5;
+      }
+
+      /* ===== پروژه‌های سئو ===== */
+      .seo-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .seo-card {
+        background: var(--bg-white);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border-soft);
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .seo-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+      .seo-img-wrap {
+        position: relative;
+        overflow: hidden;
+      }
+      .seo-img-wrap img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+      }
+      .seo-img-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          white 0%,
+          rgba(255, 255, 255, 0.2) 50%
+        );
+      }
+      .seo-body {
+        padding: 20px;
+      }
+      .seo-body h3 {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 14px;
+      }
+      .keywords-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .kw-tag {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 500;
+      }
+      .kw-green {
+        background: #e6f7f0;
+        color: #1a7a50;
+      }
+      .kw-blue {
+        background: #e6f0fb;
+        color: #1a4fbd;
+      }
+      .kw-orange {
+        background: #fff3e0;
+        color: #b85c00;
+      }
+      .kw-pink {
+        background: #fde9f3;
+        color: #a0185e;
+      }
+
+      /* ===== پروژه‌های شخصی ===== */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+      }
+      .project-card {
+        background: var(--bg-white);
+        border: 1px solid var(--border-soft);
+        border-radius: var(--radius-md);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s,
+          border-color 0.25s;
+      }
+      .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--brand-mid);
+      }
+      .project-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .project-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--text-dark);
+      }
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        background: var(--brand-light);
+        color: var(--brand-base);
+        border-radius: 10px;
+        transition:
+          background 0.2s,
+          color 0.2s;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      .project-link:hover {
+        background: var(--brand-base);
+        color: #fff;
+      }
+      .project-desc {
+        font-size: 13px;
+        color: var(--text-soft);
+        line-height: 1.7;
+      }
+
+      /* ===== مهارت‌ها ===== */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+      }
+      .skill-card {
+        background: var(--bg-white);
+        border: 1px solid var(--border-soft);
+        border-radius: var(--radius-md);
+        padding: 24px 20px;
+        text-align: center;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .skill-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+      .skill-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--brand-light);
+        color: var(--brand-base);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 14px;
+      }
+      .skill-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+      .skill-card h3 {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 8px;
+      }
+      .skill-card p {
+        font-size: 12px;
+        color: var(--text-soft);
+        line-height: 1.6;
+      }
+
+      /* ===== ابزارها ===== */
+      .tools-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+      }
+      .tool-tag {
+        background: var(--bg-white);
+        border: 1px solid var(--border-soft);
+        color: var(--text-mid);
+        font-size: 13px;
+        font-weight: 500;
+        padding: 8px 16px;
+        border-radius: 10px;
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          color 0.2s,
+          transform 0.2s;
+        cursor: default;
+      }
+      .tool-tag:hover {
+        background: var(--brand-base);
+        border-color: var(--brand-base);
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(26, 107, 92, 0.2);
+      }
+
+      /* ===== مدارک ===== */
+      .certs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 14px;
+      }
+      .cert-card {
+        background: var(--bg-white);
+        border: 1px solid var(--border-soft);
+        border-radius: var(--radius-md);
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s,
+          border-color 0.25s;
+      }
+      .cert-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--brand-light);
+      }
+      .cert-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+      .cert-name {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-dark);
+        line-height: 1.4;
+      }
+      .cert-name a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .cert-name a:hover {
+        color: var(--brand-base);
+      }
+      .cert-badge {
+        margin-right: auto;
+        flex-shrink: 0;
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--brand-base);
+        background: var(--brand-light);
+        padding: 3px 8px;
+        border-radius: 6px;
+      }
+
+      /* ===== ارتباط ===== */
+      .contact-section {
+        background: linear-gradient(
+          135deg,
+          var(--brand-dark) 0%,
+          var(--brand-base) 60%,
+          #2eb89a 100%
+        );
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .contact-section::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .contact-section::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: -60px;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .contact-inner {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+      .contact-inner h2 {
+        font-size: clamp(22px, 3.5vw, 34px);
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 12px;
+      }
+      .contact-inner p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: 36px;
+      }
+      .contact-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+      .contact-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 12px 22px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        backdrop-filter: blur(8px);
+      }
+      .contact-btn:hover {
+        background: rgba(255, 255, 255, 0.22);
+        transform: translateY(-2px);
+      }
+      .contact-btn-primary {
+        background: #fff;
+        color: var(--brand-dark);
+        border-color: transparent;
+      }
+      .contact-btn-primary:hover {
+        background: var(--brand-light);
+        color: var(--brand-dark);
+      }
+
+      /* ===== فوتر ===== */
+      footer {
+        background: var(--brand-dark);
+        color: rgba(255, 255, 255, 0.5);
+        text-align: center;
+        padding: 24px;
+        font-size: 13px;
+      }
+      footer span {
+        color: var(--brand-accent);
+      }
+
+      /* ===== ریسپانسیو ===== */
+      @media (max-width: 768px) {
+        .navbar-links {
+          display: none;
+        }
+        .burger {
+          display: flex;
+        }
+        .hero {
+          padding: 90px 20px 60px;
+        }
+        .hero-inner {
+          flex-direction: column;
+          gap: 32px;
+          text-align: center;
+        }
+        .hero-text {
+          text-align: center;
+        }
+        .hero-desc {
+          margin: 0 auto 24px;
+        }
+        .hero-actions {
+          justify-content: center;
+        }
+        .stats-row {
+          justify-content: center;
+        }
+        .section {
+          padding: 60px 0;
+        }
+        .seo-grid {
+          grid-template-columns: 1fr;
+        }
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+        .brands-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .contact-links {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+      @media (max-width: 480px) {
+        .brands-grid {
+          grid-template-columns: 1fr;
+        }
+        .skills-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .certs-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== انیمیشن ورود بخش‌ها ===== */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .fade-in-delay-1 {
+        transition-delay: 0.1s;
+      }
+      .fade-in-delay-2 {
+        transition-delay: 0.2s;
+      }
+      .fade-in-delay-3 {
+        transition-delay: 0.3s;
+      }
+    </style>
   </head>
 
-  <body class="bg-bgSoft text-gray-700">
-    <!-- 🔹 معرفی -->
-    <section id="intro" class="py-20 bg-bgSoft">
-      <div
-        class="max-w-6xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-10"
-      >
-        <div class="flex-1 text-center md:text-right">
-          <h1 class="text-4xl font-display text-brand-dark mb-4">
-            امیررضا حیدری
-          </h1>
-          <p class="text-lg font-sans text-gray-700 mb-6">
-            سلام، من یک توسعه‌دهنده وب هستم که عاشق ساخت ابزارهای کوچک برای کمک
-            به سرعت بخشیدن به کارها یا پیاده‌سازی ایده‌های جدید هستم. من همیشه
-            به یادگیری چیزهای جدید و آشنایی با فناوری‌های بینایی علاقه‌مند هستم.
-          </p>
-          <a
-            href="#contact"
-            class="inline-block bg-brand-base hover:bg-brand-dark text-white px-8 py-3 rounded transition"
-          >
-            ارتباط مستقیم
-          </a>
-        </div>
-        <div class="flex-1 text-center">
+  <body>
+    <!-- ===== ناوبار ===== -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar-inner">
+        <a href="#" class="navbar-logo">امیررضا <span>حیدری</span></a>
+        <ul class="navbar-links">
+          <li><a href="#recent-work">همکاری‌ها</a></li>
+          <li><a href="#portfolio">نمونه کار</a></li>
+          <li><a href="#projects">پروژه‌ها</a></li>
+          <li><a href="#skills">مهارت‌ها</a></li>
+          <li><a href="#certificates">مدارک</a></li>
+          <li><a href="#contact" class="navbar-cta">تماس</a></li>
+        </ul>
+        <button class="burger" id="burger" aria-label="منو">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#recent-work" onclick="closeMobile()">همکاری‌ها</a>
+        <a href="#portfolio" onclick="closeMobile()">نمونه کار</a>
+        <a href="#projects" onclick="closeMobile()">پروژه‌های شخصی</a>
+        <a href="#skills" onclick="closeMobile()">مهارت‌ها</a>
+        <a href="#certificates" onclick="closeMobile()">مدارک</a>
+        <a href="#contact" class="cta" onclick="closeMobile()">ارتباط مستقیم</a>
+      </div>
+    </nav>
+
+    <!-- ===== هیرو / معرفی ===== -->
+    <section id="intro" class="hero">
+      <div class="hero-inner">
+        <div class="hero-img-wrap fade-in">
           <img
-            loading="lazy"
             src="images/profile.jpg"
-            alt="Profile"
-            class="w-56 h-56 object-cover rounded-full mx-auto shadow-lg"
+            alt="امیررضا حیدری"
+            class="hero-img"
+            loading="eager"
           />
+          <div class="hero-badge">در دسترس برای همکاری</div>
+        </div>
+        <div class="hero-text">
+          <div class="hero-tag fade-in">توسعه‌دهنده وب · Front-end</div>
+          <h1 class="hero-name fade-in fade-in-delay-1">امیررضا حیدری</h1>
+          <p class="hero-desc fade-in fade-in-delay-2">
+            سلام! من یک توسعه‌دهنده وب هستم که عاشق ساختن ابزارهای کوچک و
+            کاربردی‌ام. از طراحی رابط کاربری زیبا تا بهینه‌سازی سئو — همیشه
+            دنبال یادگیری و پیاده‌سازی ایده‌های جدید هستم.
+          </p>
+          <div class="hero-actions fade-in fade-in-delay-3">
+            <a href="#contact" class="btn-primary">
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-.75a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.5v1.42z"
+                />
+              </svg>
+              ارتباط مستقیم
+            </a>
+            <a href="#portfolio" class="btn-secondary">
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+              </svg>
+              مشاهده نمونه کارها
+            </a>
+          </div>
+          <div class="stats-row fade-in">
+            <div class="stat-item">
+              <span class="stat-num">+۱۵</span>
+              <span class="stat-label">برند همکاری</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">+۲۰</span>
+              <span class="stat-label">پروژه طراحی</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">۶</span>
+              <span class="stat-label">گواهینامه گوگل</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <!--  -->
-    <!-- همکاری‌ها -->
-    <section id="recent-work" class="py-20 lg:px-10 px-6 bg-bgSoft">
-      <div class="text-center mb-12">
-        <h2
-          class="text-gray-800 font-display font-bold md:text-4xl text-2xl tracking-tight"
-        >
-          همکاری من با برندها
-        </h2>
-      </div>
 
-      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
-        <li class="flex flex-col items-start text-right">
-          <div class="flex items-center gap-4">
+    <!-- ===== همکاری با برندها ===== -->
+    <section id="recent-work" class="section section-alt">
+      <div class="container">
+        <div class="section-title fade-in">
+          <div class="title-line"></div>
+          <h2>همکاری من با برندها</h2>
+          <p>سابقه همکاری با کسب‌وکارهای مختلف در حوزه طراحی و توسعه وب</p>
+        </div>
+        <div class="brands-grid">
+          <div class="brand-card fade-in">
             <img
               loading="lazy"
               src="./images/brands/emdadexpress.jpg"
-              alt="Star Plastic Industries"
-              class="h-14 w-14 rounded-full object-cover border border-gray-200"
+              alt="امداد اکسپرس"
+              class="brand-logo"
             />
-            <h2 class="text-brand-base font-display text-base font-semibold">
-              امداد اکسپرس
-            </h2>
+            <div class="brand-info">
+              <h3>امداد اکسپرس</h3>
+              <p>خدمات حرفه‌ای حمل خودرو</p>
+            </div>
           </div>
-          <p class="mt-3 text-sm text-gray-600 font-sans leading-relaxed">
-            خدمات حرفه ای حمل خودرو
-          </p>
-        </li>
-        <li class="flex flex-col items-start text-right">
-          <div class="flex items-center gap-4">
+          <div class="brand-card fade-in fade-in-delay-1">
             <img
               loading="lazy"
               src="./images/brands/atahose.png"
-              alt="Star Plastic Industries"
-              class="h-14 w-14 rounded-full object-cover border border-gray-200"
+              alt="گروه صنعتی آتا"
+              class="brand-logo"
             />
-            <h2 class="text-brand-base font-display text-base font-semibold">
-              گروه صنعتی آتا
-            </h2>
+            <div class="brand-info">
+              <h3>گروه صنعتی آتا</h3>
+              <p>فروش محصولات شلنگ و جنت سیلیکونی</p>
+            </div>
           </div>
-          <p class="mt-3 text-sm text-gray-600 font-sans leading-relaxed">
-            فروش انواع محصولات شلنگ و جنت سیلیکونی
-          </p>
-        </li>
-        <li class="flex flex-col items-start text-right">
-          <div class="flex items-center gap-4">
+          <div class="brand-card fade-in fade-in-delay-2">
             <img
               loading="lazy"
               src="./images/brands/fooladmarkazi .png"
-              alt="Star Plastic Industries"
-              class="h-14 w-14 rounded-full object-cover border border-gray-200"
+              alt="فولاد مرکزی دلاکان"
+              class="brand-logo"
             />
-            <h2 class="text-brand-base font-display text-base font-semibold">
-              فولاد مرکزی دلاکان
-            </h2>
+            <div class="brand-info">
+              <h3>فولاد مرکزی دلاکان</h3>
+              <p>فروش تخصصی فولاد</p>
+            </div>
           </div>
-          <p class="mt-3 text-sm text-gray-600 font-sans leading-relaxed">
-            فروش فولاد به صورت تخصصی
-          </p>
-        </li>
-        <li class="flex flex-col items-start text-right">
-          <div class="flex items-center gap-4">
+          <div class="brand-card fade-in">
             <img
               loading="lazy"
               src="./images/brands/persiandiesel.png"
-              alt="Star Plastic Industries"
-              class="h-14 w-14 rounded-full object-cover border border-gray-200"
+              alt="پرشین دیزل"
+              class="brand-logo"
             />
-            <h2 class="text-brand-base font-display text-base font-semibold">
-              پرشین دیزل
-            </h2>
+            <div class="brand-info">
+              <h3>پرشین دیزل</h3>
+              <p>تعمیر و فروش قطعات دیزل</p>
+            </div>
           </div>
-          <p class="mt-3 text-sm text-gray-600 font-sans leading-relaxed">
-            تعمیر و فروش قطعات دیزل
-          </p>
-        </li>
-        <li class="flex flex-col items-start text-right">
-          <div class="flex items-center gap-4">
+          <div class="brand-card fade-in fade-in-delay-1">
             <img
               loading="lazy"
               src="./images/brands/abzarbaz.png"
-              alt="Star Plastic Industries"
-              class="h-14 w-14 rounded-full object-cover border border-gray-200"
+              alt="ابزارباز"
+              class="brand-logo"
             />
-            <h2 class="text-brand-base font-display text-base font-semibold">
-              ابزارباز
-            </h2>
+            <div class="brand-info">
+              <h3>ابزارباز</h3>
+              <p>فروش ابزارآلات و نمایندگی نووا</p>
+            </div>
           </div>
-          <p class="mt-3 text-sm text-gray-600 font-sans leading-relaxed">
-            فروش ابزارآلات و نمایندگی رسمی نووا
-          </p>
-        </li>
-        <li class="flex flex-col items-start text-right">
-          <div class="flex items-center gap-4">
+          <div class="brand-card fade-in fade-in-delay-2">
             <img
               loading="lazy"
               src="./images/brands/sange-golestan-logo.png"
-              alt="Star Plastic Industries"
-              class="h-14 w-14 rounded-full object-cover border border-gray-200"
+              alt="عطر سنگ گلستان"
+              class="brand-logo"
             />
-            <h2 class="text-brand-base font-display text-base font-semibold">
-              فروشگا عطر سنگ گلستان
-            </h2>
+            <div class="brand-info">
+              <h3>عطر سنگ گلستان</h3>
+              <p>فروش انواع عطرهای قدیمی و جدید</p>
+            </div>
           </div>
-          <p class="mt-3 text-sm text-gray-600 font-sans leading-relaxed">
-            فروش انواع عطر ها قدیمی و جدید
-          </p>
-        </li>
-        <li class="flex flex-col items-start text-right">
-          <div class="flex items-center gap-4">
+          <div class="brand-card fade-in">
             <img
               loading="lazy"
               src="./images/brands/emdadkhodromaxim.png"
-              alt="Star Plastic Industries"
-              class="h-14 w-14 rounded-full object-cover border border-gray-200"
+              alt="امداد خودرو ماکسیم"
+              class="brand-logo"
             />
-            <h2 class="text-brand-base font-display text-base font-semibold">
-              امداد خودرو ماکسیم
-            </h2>
+            <div class="brand-info">
+              <h3>امداد خودرو ماکسیم</h3>
+              <p>امداد و حمل خودرو</p>
+            </div>
           </div>
-          <p class="mt-3 text-sm text-gray-600 font-sans leading-relaxed">
-            امداد خودرو و حمل خودرو
-          </p>
-        </li>
-
-        <li class="flex flex-col items-start text-right">
-          <div class="flex items-center gap-4">
+          <div class="brand-card fade-in fade-in-delay-1">
             <img
               loading="lazy"
               src="./images/brands/IdealtJam.jpg"
-              alt="IdealtJam"
-              class="h-14 w-14 rounded-full object-cover border border-gray-200"
+              alt="ایده آل توان جم"
+              class="brand-logo"
             />
-            <h2 class="text-brand-base font-display text-base font-semibold">
-              ایده آل توان جم
-            </h2>
+            <div class="brand-info">
+              <h3>ایده آل توان جم</h3>
+              <p>فروش و تعمیر کمپرسورهای یخچال</p>
+            </div>
           </div>
-          <p class="mt-3 text-sm text-gray-600 font-sans">
-            فروش و تعمیر کمپرسورهای یخچال
-          </p>
-        </li>
-
-        <li class="flex flex-col items-start text-right">
-          <div class="flex items-center gap-4">
+          <div class="brand-card fade-in fade-in-delay-2">
             <img
               loading="lazy"
               src="./images/brands/ImanKaran-Vahdat.jpg"
-              alt="ImanKaran Vahdat"
-              class="h-14 w-14 rounded-full object-cover border border-gray-200"
+              alt="ایمن کاران وحدت"
+              class="brand-logo"
             />
-            <h2 class="text-brand-base font-display text-base font-semibold">
-              ایمن کاران وحدت
-            </h2>
+            <div class="brand-info">
+              <h3>ایمن کاران وحدت</h3>
+              <p>تأمین و تولید درب‌های ضدسرقت</p>
+            </div>
           </div>
-          <p class="mt-3 text-sm text-gray-600 font-sans">
-            تأمین و تولید درب‌های ضدسرقت
-          </p>
-        </li>
-
-        <li class="flex flex-col items-start text-right">
-          <div class="flex items-center gap-4">
+          <div class="brand-card fade-in">
             <img
               loading="lazy"
               src="./images/brands/ChapSina.jpg"
-              alt="ChapSina"
-              class="h-14 w-14 rounded-full object-cover border border-gray-200"
+              alt="چاپ سینا"
+              class="brand-logo"
             />
-            <h2 class="text-brand-base font-display text-base font-semibold">
-              چاپ سینا
-            </h2>
+            <div class="brand-info">
+              <h3>چاپ سینا</h3>
+              <p>چاپ و رایت و قفل‌گذاری CD</p>
+            </div>
           </div>
-          <p class="mt-3 text-sm text-gray-600 font-sans">
-            چاپ و رایت و قفل‌گذاری CD
-          </p>
-        </li>
-
-        <li class="flex flex-col items-start text-right">
-          <div class="flex items-center gap-4">
+          <div class="brand-card fade-in fade-in-delay-1">
             <img
               loading="lazy"
               src="./images/brands/Irannaz-Bano.jpg"
-              alt="Irannaz Bano"
-              class="h-14 w-14 rounded-full object-cover border border-gray-200"
+              alt="ایران ناز بانو"
+              class="brand-logo"
             />
-            <h2 class="text-brand-base font-display text-base font-semibold">
-              ایران ناز بانو
-            </h2>
+            <div class="brand-info">
+              <h3>ایران ناز بانو</h3>
+              <p>فروش محصولات آرایشی با بهترین کیفیت</p>
+            </div>
           </div>
-          <p class="mt-3 text-sm text-gray-600 font-sans">
-            فروش انواع محصولات آرایشی با بهترین کیفیت
-          </p>
-        </li>
-
-        <li class="flex flex-col items-start text-right">
-          <div class="flex items-center gap-4">
+          <div class="brand-card fade-in fade-in-delay-2">
             <img
               loading="lazy"
               src="./images/brands/Dandanesh.jpg"
-              alt="Dandanesh"
-              class="h-14 w-14 rounded-full object-cover border border-gray-200"
+              alt="دندانش"
+              class="brand-logo"
             />
-            <h2 class="text-brand-base font-display text-base font-semibold">
-              دندانش
-            </h2>
+            <div class="brand-info">
+              <h3>دندانش</h3>
+              <p>مرکز تخصصی تجهیزات دندانپزشکی</p>
+            </div>
           </div>
-          <p class="mt-3 text-sm text-gray-600 font-sans">
-            مرکز تخصصی فروش تجهیزات دندانپزشکی
-          </p>
-        </li>
-
-        <li class="flex flex-col items-start text-right">
-          <div class="flex items-center gap-4">
+          <div class="brand-card fade-in">
             <img
               loading="lazy"
               src="./images/brands/Pamuk.jpg"
-              alt="Pamuk"
-              class="h-14 w-14 rounded-full object-cover border border-gray-200"
+              alt="پاموک"
+              class="brand-logo"
             />
-            <h2 class="text-brand-base font-display text-base font-semibold">
-              پاموک
-            </h2>
-          </div>
-          <p class="mt-3 text-sm text-gray-600 font-sans">
-            فروش محصولات خارجی و برندهای آمازون در ایران
-          </p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- 🔹 نمونه‌کارها (Portfolio Grid) -->
-    <section id="portfolio" class="py-20 bg-bgSoft">
-      <div class="max-w-6xl mx-auto px-6 text-start">
-        <h2 class="text-2xl font-display text-gray-800 mb-12">
-          نمونه کار طراحی سایت
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Item 1 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/01.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری سایت فرش
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/01.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/02.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری سایت وکالت
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/02.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/03.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری فروشگاه فروش بین المللی
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/03.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 4 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/04.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری سایت تیم
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/04.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 5 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/05.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری فروشگاه آسانسور
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/05.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 6 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/06.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری سایت وکیل مهاجرت
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/06.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 7 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/07.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری سایت خدمات سئو
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/07.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 8 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/08.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری فروشگاه مبل
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/08.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 9 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/09.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری فروشگاه مبلمان
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/09.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 10 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/10.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری خرید بلیط
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/10.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 11 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/11.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری سایت خبری
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/11.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 12 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/12.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری فروشگاه لباس
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/12.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 13 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/13.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری شرکت ساختمانی
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/13.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 14 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/14.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری خدمات تریلی
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/14jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 15 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/15.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری شرکت فروش آهن
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/15.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 16 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/16.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری فروشگاه موبایل
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/16.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 17 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/17.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری آموزشی
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/17.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 18 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/18.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری فروشگاه لوازم یدکی
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/18.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 19 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/19.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری فروشگاه لوازم گرمایشی و سرمایشی
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/19.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
-            </div>
-          </div>
-
-          <!-- Item 20 -->
-          <div class="overflow-hidden bg-white rounded-2xl shadow">
-            <img
-              loading="lazy"
-              src="./images/portfolio/websites-cover/20.jpg"
-              class="w-full h-auto object-cover"
-            />
-            <div class="p-5 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                طراحی رابط کاربری فروشگاه لوازم ایمنی
-              </h3>
-              <p class="text-sm text-gray-600 font-sans"></p>
-              <a
-                href="./images/portfolio/websites-org/20.jpg"
-                target="_blank"
-                class="inline-block bg-brand-base text-white text-sm px-4 py-2 rounded-lg"
-              >
-                مشاهده با کیفیت اصلی
-              </a>
+            <div class="brand-info">
+              <h3>پاموک</h3>
+              <p>فروش محصولات برندهای آمازون در ایران</p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Search Console Portfolio Section -->
-    <section class="bg-gray-50 py-12 text-start">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-2xl font-display text-gray-800 mb-10 text-right">
-          پروژه‌های سئو
-        </h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          <!-- Card 1 -->
-          <div
-            class="relative bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden"
-          >
-            <div
-              class="absolute inset-0 bg-gradient-to-b from-white/30 via-white/80 to-white"
-            ></div>
-            <img
-              loading="lazy"
-              src="./images/search-console/s-04.jpg"
-              alt="حوزه امداد خودرو "
-              class="w-full h-auto object-cover"
-            />
-            <div class="relative p-6 text-right">
-              <h3 class="font-display text-brand-base mb-2">
-                سایت خدمات امدادخودرو
-              </h3>
-              <div class="flex flex-wrap gap-2 justify-start mb-4">
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو غرب تهران
-                </span>
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو هیوندا کرج
-                </span>
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو شمال تهران
-                </span>
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو پرند
-                </span>
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو تهران غرب
-                </span>
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو شهرری
-                </span>
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو نیاوران
-                </span>
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو هیوندا در ونک
-                </span>
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو غرب تهران همت</span
-                >
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو شهرری</span
-                >
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو بهشت زهرا</span
-                >
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو فرمانیه</span
-                >
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو لواسان</span
-                >
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو پیروزی</span
-                >
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو جنت آباد</span
-                >
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو سعادت آباد</span
-                >
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو تهرانسر</span
-                >
-                <span
-                  class="px-3 py-1 bg-brand-base/10 text-brand-base text-xs rounded-full"
-                  >امداد خودرو نازی آباد</span
+    <!-- ===== نمونه کار طراحی سایت ===== -->
+    <section id="portfolio" class="section section-tinted">
+      <div class="container">
+        <div class="section-title fade-in">
+          <div class="title-line"></div>
+          <h2>نمونه کار طراحی سایت</h2>
+          <p>طراحی رابط کاربری برای صنایع و حوزه‌های مختلف</p>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-card fade-in">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/01.jpg"
+                alt="طراحی سایت فرش"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/01.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
                 >
               </div>
             </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری سایت فرش</h3>
+            </div>
           </div>
-          <!-- Card 2 -->
-          <div
-            class="relative bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden"
-          >
-            <div
-              class="absolute inset-0 bg-gradient-to-b from-white/30 via-white/80 to-white"
-            ></div>
-            <img
-              loading="lazy"
-              src="./images/search-console/s-01.jpg"
-              alt="حوزه چاپ سی دی"
-              class="w-full h-auto object-cover"
-            />
-            <div class="relative p-6 text-right">
-              <h3 class="font-display text-green-500 mb-2">
-                سایت چاپ سی دی و دی وی دی
-              </h3>
-              <div class="flex flex-wrap gap-2 justify-start mb-4">
-                <span
-                  class="px-3 py-1 bg-green-500/10 text-green-500 text-xs rounded-full"
-                  >فلش تبلیغاتی
-                </span>
-                <span
-                  class="px-3 py-1 bg-green-500/10 text-green-500 text-xs rounded-full"
-                  >چاپ سی دی
-                </span>
-                <span
-                  class="px-3 py-1 bg-green-500/10 text-green-500 text-xs rounded-full"
-                  >فلش مموری تبلیغاتی
-                </span>
-                <span
-                  class="px-3 py-1 bg-green-500/10 text-green-500 text-xs rounded-full"
-                  >قاب سی دی
-                </span>
-                <span
-                  class="px-3 py-1 bg-green-500/10 text-green-500 text-xs rounded-full"
-                  >هزینه رایت سی دی
-                </span>
-                <span
-                  class="px-3 py-1 bg-green-500/10 text-green-500 text-xs rounded-full"
-                  >چاپ روی سی دی
-                </span>
-                <span
-                  class="px-3 py-1 bg-green-500/10 text-green-500 text-xs rounded-full"
-                  >چاپ سی دی
-                </span>
-                <span
-                  class="px-3 py-1 bg-green-500/10 text-green-500 text-xs rounded-full"
-                  >قیمت رایت سی دی
-                </span>
-                <span
-                  class="px-3 py-1 bg-green-500/10 text-green-500 text-xs rounded-full"
-                  >قاب سی دی</span
+          <div class="portfolio-card fade-in fade-in-delay-1">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/02.jpg"
+                alt="طراحی سایت وکالت"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/02.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
                 >
               </div>
             </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری سایت وکالت</h3>
+            </div>
           </div>
-          <!-- Card 3 -->
-          <div
-            class="relative bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden"
-          >
-            <div
-              class="absolute inset-0 bg-gradient-to-b from-white/30 via-white/80 to-white"
-            ></div>
-            <img
-              loading="lazy"
-              src="./images/search-console/s-02.jpg"
-              alt="حوزه آهن الات"
-              class="w-full h-auto object-cover"
-            />
-            <div class="relative p-6 text-right">
-              <h3 class="font-display text-orange-500 mb-2">سایت فروش فولاد</h3>
-              <div class="flex flex-wrap gap-2 justify-start mb-4">
-                <span
-                  class="px-3 py-1 bg-orange-500/10 text-orange-500 text-xs rounded-full"
-                  >فولاد mo40
-                </span>
+          <div class="portfolio-card fade-in fade-in-delay-2">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/03.jpg"
+                alt="فروشگاه بین‌المللی"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/03.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری فروشگاه فروش بین‌المللی</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/04.jpg"
+                alt="سایت تیم"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/04.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری سایت تیم</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in fade-in-delay-1">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/05.jpg"
+                alt="فروشگاه آسانسور"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/05.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری فروشگاه آسانسور</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in fade-in-delay-2">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/06.jpg"
+                alt="سایت وکیل مهاجرت"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/06.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری سایت وکیل مهاجرت</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/07.jpg"
+                alt="سایت خدمات سئو"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/07.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری سایت خدمات سئو</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in fade-in-delay-1">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/08.jpg"
+                alt="فروشگاه مبل"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/08.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری فروشگاه مبل</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in fade-in-delay-2">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/09.jpg"
+                alt="فروشگاه مبلمان"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/09.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری فروشگاه مبلمان</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/10.jpg"
+                alt="خرید بلیط"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/10.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری خرید بلیط</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in fade-in-delay-1">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/11.jpg"
+                alt="سایت خبری"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/11.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری سایت خبری</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in fade-in-delay-2">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/12.jpg"
+                alt="فروشگاه لباس"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/12.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری فروشگاه لباس</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/13.jpg"
+                alt="شرکت ساختمانی"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/13.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری شرکت ساختمانی</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in fade-in-delay-1">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/14.jpg"
+                alt="خدمات تریلی"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/14jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری خدمات تریلی</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in fade-in-delay-2">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/15.jpg"
+                alt="شرکت فروش آهن"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/15.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری شرکت فروش آهن</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/16.jpg"
+                alt="فروشگاه موبایل"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/16.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری فروشگاه موبایل</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in fade-in-delay-1">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/17.jpg"
+                alt="طراحی آموزشی"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/17.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body"><h3>طراحی رابط کاربری آموزشی</h3></div>
+          </div>
+          <div class="portfolio-card fade-in fade-in-delay-2">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/18.jpg"
+                alt="فروشگاه لوازم یدکی"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/18.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری فروشگاه لوازم یدکی</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/19.jpg"
+                alt="لوازم گرمایشی سرمایشی"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/19.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری فروشگاه لوازم گرمایشی و سرمایشی</h3>
+            </div>
+          </div>
+          <div class="portfolio-card fade-in fade-in-delay-1">
+            <div class="portfolio-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/portfolio/websites-cover/20.jpg"
+                alt="فروشگاه لوازم ایمنی"
+              />
+              <div class="portfolio-overlay">
+                <a href="./images/portfolio/websites-org/20.jpg" target="_blank"
+                  >مشاهده اصلی ↗</a
+                >
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>طراحی رابط کاربری فروشگاه لوازم ایمنی</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== پروژه‌های سئو ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-title fade-in">
+          <div class="title-line"></div>
+          <h2>پروژه‌های سئو</h2>
+          <p>بهینه‌سازی موتور جستجو و رتبه‌بندی کلمات کلیدی هدف</p>
+        </div>
+        <div class="seo-grid">
+          <div class="seo-card fade-in">
+            <div class="seo-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/search-console/s-04.jpg"
+                alt="سایت امداد خودرو"
+              />
+              <div class="seo-img-overlay"></div>
+            </div>
+            <div class="seo-body">
+              <h3>سایت خدمات امداد خودرو</h3>
+              <div class="keywords-wrap">
+                <span class="kw-tag kw-blue">امداد خودرو غرب تهران</span>
+                <span class="kw-tag kw-blue">امداد خودرو هیوندا کرج</span>
+                <span class="kw-tag kw-blue">امداد خودرو شمال تهران</span>
+                <span class="kw-tag kw-blue">امداد خودرو پرند</span>
+                <span class="kw-tag kw-blue">امداد خودرو تهران غرب</span>
+                <span class="kw-tag kw-blue">امداد خودرو شهرری</span>
+                <span class="kw-tag kw-blue">امداد خودرو نیاوران</span>
+                <span class="kw-tag kw-blue">امداد خودرو سعادت آباد</span>
+                <span class="kw-tag kw-blue">امداد خودرو بهشت زهرا</span>
+                <span class="kw-tag kw-blue">امداد خودرو لواسان</span>
               </div>
             </div>
           </div>
-          <!-- Card 4 -->
-          <div
-            class="relative bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden"
-          >
-            <div
-              class="absolute inset-0 bg-gradient-to-b from-white/30 via-white/80 to-white"
-            ></div>
-            <img
-              loading="lazy"
-              src="./images/search-console/s-03.jpg"
-              alt="حوزه ابزار الات"
-              class="w-full h-auto object-cover"
-            />
-            <div class="relative p-6 text-right">
-              <h3 class="font-display text-pink-500 mb-2">
-                سایت فروشگاهی ابزارالات
-              </h3>
-              <div class="flex flex-wrap gap-2 justify-start mb-4">
-                <span
-                  class="px-3 py-1 bg-pink-500/10 text-pink-500 text-xs rounded-full"
-                >
-                  نمایندگی ابزار نووا در تهران</span
-                >
-                <span
-                  class="px-3 py-1 bg-pink-500/10 text-pink-500 text-xs rounded-full"
-                  >ابزارالات نووا
-                </span>
-                <span
-                  class="px-3 py-1 bg-pink-500/10 text-pink-500 text-xs rounded-full"
-                >
-                  دستگاه جوش وینر</span
-                >
+          <div class="seo-card fade-in fade-in-delay-1">
+            <div class="seo-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/search-console/s-01.jpg"
+                alt="سایت چاپ سی دی"
+              />
+              <div class="seo-img-overlay"></div>
+            </div>
+            <div class="seo-body">
+              <h3>سایت چاپ سی دی و دی وی دی</h3>
+              <div class="keywords-wrap">
+                <span class="kw-tag kw-green">فلش تبلیغاتی</span>
+                <span class="kw-tag kw-green">چاپ سی دی</span>
+                <span class="kw-tag kw-green">فلش مموری تبلیغاتی</span>
+                <span class="kw-tag kw-green">قاب سی دی</span>
+                <span class="kw-tag kw-green">هزینه رایت سی دی</span>
+                <span class="kw-tag kw-green">چاپ روی سی دی</span>
+                <span class="kw-tag kw-green">قیمت رایت سی دی</span>
+              </div>
+            </div>
+          </div>
+          <div class="seo-card fade-in fade-in-delay-2">
+            <div class="seo-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/search-console/s-02.jpg"
+                alt="سایت فروش فولاد"
+              />
+              <div class="seo-img-overlay"></div>
+            </div>
+            <div class="seo-body">
+              <h3>سایت فروش فولاد</h3>
+              <div class="keywords-wrap">
+                <span class="kw-tag kw-orange">قیمت ورق کورتن</span>
+                <span class="kw-tag kw-orange">فولاد 4140</span>
+                <span class="kw-tag kw-orange">فولاد W360</span>
+                <span class="kw-tag kw-orange">فولاد SKD1</span>
+                <span class="kw-tag kw-orange">فولاد 7380</span>
+                <span class="kw-tag kw-orange">قیمت فولاد 7335</span>
+                <span class="kw-tag kw-orange">فولاد 2738</span>
+                <span class="kw-tag kw-orange">خرید فولاد CK10</span>
+                <span class="kw-tag kw-orange">فولاد mo40</span>
+                <span class="kw-tag kw-orange">قیمت ورق کورتن</span>
+                <span class="kw-tag kw-orange">خرید فولاد CK10</span>
+                <span class="kw-tag kw-orange">فروش فولاد CK10</span>
+                <span class="kw-tag kw-orange">قیمت فولاد CK10</span>
+                <span class="kw-tag kw-orange">قیمت فولاد 6523</span>
+                <span class="kw-tag kw-orange">قیمت فولاد 5920</span>
+                <span class="kw-tag kw-orange">خرید فولاد 6523</span>
+                <span class="kw-tag kw-orange">فولاد W360</span>
+                <span class="kw-tag kw-orange">فولاد 4140</span>
+                <span class="kw-tag kw-orange">فولاد 7380</span>
+                <span class="kw-tag kw-orange">قیمت فولاد 7380</span>
+                <span class="kw-tag kw-orange">قیمت فولاد 7335</span>
+                <span class="kw-tag kw-orange">فولاد SKD1</span>
+                <span class="kw-tag kw-orange">فولاد 6587</span>
+                <span class="kw-tag kw-orange">فولاد 2738</span>
+                <span class="kw-tag kw-orange">لوله X42</span>
+                <span class="kw-tag kw-orange">S235JR</span>
+                <span class="kw-tag kw-orange">فولاد 1.2419</span>
+                <span class="kw-tag kw-orange">فولاد 1.7711</span>
+                <span class="kw-tag kw-orange">فولاد 1.7147</span>
+              </div>
+            </div>
+          </div>
+          <div class="seo-card fade-in fade-in-delay-3">
+            <div class="seo-img-wrap">
+              <img
+                loading="lazy"
+                src="./images/search-console/s-03.jpg"
+                alt="سایت ابزارالات"
+              />
+              <div class="seo-img-overlay"></div>
+            </div>
+            <div class="seo-body">
+              <h3>سایت فروشگاهی ابزارالات</h3>
+              <div class="keywords-wrap">
+                <span class="kw-tag kw-pink">نمایندگی ابزار نووا در تهران</span>
+                <span class="kw-tag kw-pink">ابزارالات نووا</span>
+                <span class="kw-tag kw-pink">دستگاه جوش وینر</span>
               </div>
             </div>
           </div>
@@ -977,649 +1807,529 @@
       </div>
     </section>
 
-    <!-- 🔹 پروژه‌های شخصی -->
-    <section id="projects" class="py-20 bg-brand-light bg-opacity-20">
-      <div class="max-w-6xl mx-auto px-6 text-center flex flex-col gap-y-3">
-        <h2 class="text-2xl font-display text-brand-dark">پروژه‌های شخصی</h2>
-        <div class="space-y-8 text-right">
-          <div class="bg-white p-6 rounded-2xl shadow relative">
-            <!-- عنوان و دکمه در یک ردیف -->
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="font-display text-brand-base">
-                ابزار فشرده‌ساز تصویر
-              </h3>
+    <!-- ===== پروژه‌های شخصی ===== -->
+    <section id="projects" class="section section-tinted">
+      <div class="container">
+        <div class="section-title fade-in">
+          <div class="title-line"></div>
+          <h2>پروژه‌های شخصی</h2>
+          <p>ابزارهایی که ساختم تا کارها را سریع‌تر و راحت‌تر کنم</p>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card fade-in">
+            <div class="project-header">
+              <h3 class="project-title">ابزار فشرده‌ساز تصویر</h3>
               <a
                 href="https://clarotm.ir/compress-image/"
                 target="_blank"
-                class="flex items-center gap-2 bg-brand-base/70 hover:bg-brand-base text-white text-sm p-2 rounded-lg"
+                class="project-link"
+                title="مشاهده پروژه"
               >
-                <!-- آیکون (SVG چشم) -->
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                  color="currentColor"
+                  width="16"
+                  height="16"
                   fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
                 >
                   <path
-                    d="M21.544 11.045C21.848 11.4713 22 11.6845 22 12C22 12.3155 21.848 12.5287 21.544 12.955C20.1779 14.8706 16.6892 19 12 19C7.31078 19 3.8221 14.8706 2.45604 12.955C2.15201 12.5287 2 12.3155 2 12C2 11.6845 2.15201 11.4713 2.45604 11.045C3.8221 9.12944 7.31078 5 12 5C16.6892 5 20.1779 9.12944 21.544 11.045Z"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                  ></path>
-                  <path
-                    d="M15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12Z"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                  ></path>
+                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                  />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
                 </svg>
               </a>
             </div>
-
-            <!-- توضیحات کارت -->
-            <p class="font-sans text-gray-600 text-sm leading-relaxed">
-              بدون آپلود روی سرور و در امنیت 100% تصاویر خود را فشرده کنید
+            <p class="project-desc">
+              بدون آپلود روی سرور و در امنیت ۱۰۰٪ تصاویر خود را فشرده کنید
             </p>
           </div>
-        </div>
-        <div class="space-y-8 text-right">
-          <div class="bg-white p-6 rounded-2xl shadow relative">
-            <!-- عنوان و دکمه در یک ردیف -->
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="font-display text-brand-base">
-                ابزار کلمه کلیدی گوگل
-              </h3>
+          <div class="project-card fade-in fade-in-delay-1">
+            <div class="project-header">
+              <h3 class="project-title">ابزار کلمه کلیدی گوگل</h3>
               <a
                 href="https://clarotm.ir/keyword-tool/"
                 target="_blank"
-                class="flex items-center gap-2 bg-brand-base/70 hover:bg-brand-base text-white text-sm p-2 rounded-lg"
+                class="project-link"
+                title="مشاهده پروژه"
               >
-                <!-- آیکون (SVG چشم) -->
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                  color="currentColor"
+                  width="16"
+                  height="16"
                   fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
                 >
                   <path
-                    d="M21.544 11.045C21.848 11.4713 22 11.6845 22 12C22 12.3155 21.848 12.5287 21.544 12.955C20.1779 14.8706 16.6892 19 12 19C7.31078 19 3.8221 14.8706 2.45604 12.955C2.15201 12.5287 2 12.3155 2 12C2 11.6845 2.15201 11.4713 2.45604 11.045C3.8221 9.12944 7.31078 5 12 5C16.6892 5 20.1779 9.12944 21.544 11.045Z"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                  ></path>
-                  <path
-                    d="M15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12Z"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                  ></path>
+                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                  />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
                 </svg>
               </a>
             </div>
-
-            <!-- توضیحات کارت -->
-            <p class="font-sans text-gray-600 text-sm leading-relaxed">
+            <p class="project-desc">
               پیشنهاد کلمه کلیدی ساجزشن بدون دردسر و راحت برای استفاده در سئو
             </p>
           </div>
-        </div>
-        <div class="space-y-8 text-right">
-          <div class="bg-white p-6 rounded-2xl shadow relative">
-            <!-- عنوان و دکمه در یک ردیف -->
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="font-display text-brand-base">
-                ابزار تبدیل متن فارسی کپ کات
-              </h3>
+          <div class="project-card fade-in fade-in-delay-2">
+            <div class="project-header">
+              <h3 class="project-title">ابزار تبدیل متن فارسی کپ کات</h3>
               <a
                 href="https://clarotm.ir/convert-text-capcut/"
                 target="_blank"
-                class="flex items-center gap-2 bg-brand-base/70 hover:bg-brand-base text-white text-sm p-2 rounded-lg"
+                class="project-link"
+                title="مشاهده پروژه"
               >
-                <!-- آیکون (SVG چشم) -->
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                  color="currentColor"
+                  width="16"
+                  height="16"
                   fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
                 >
                   <path
-                    d="M21.544 11.045C21.848 11.4713 22 11.6845 22 12C22 12.3155 21.848 12.5287 21.544 12.955C20.1779 14.8706 16.6892 19 12 19C7.31078 19 3.8221 14.8706 2.45604 12.955C2.15201 12.5287 2 12.3155 2 12C2 11.6845 2.15201 11.4713 2.45604 11.045C3.8221 9.12944 7.31078 5 12 5C16.6892 5 20.1779 9.12944 21.544 11.045Z"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                  ></path>
-                  <path
-                    d="M15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12Z"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                  ></path>
+                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                  />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
                 </svg>
               </a>
             </div>
-
-            <!-- توضیحات کارت -->
-            <p class="font-sans text-gray-600 text-sm leading-relaxed">
-              بدون مشکل بهم ریختگی متن فارسی متن خود را در کپ کات وارد کنید
+            <p class="project-desc">
+              بدون مشکل به‌هم‌ریختگی متن فارسی، متن خود را در کپ کات وارد کنید
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 🔹 مهارت‌ها (skills) -->
-    <section id="skills" class="py-20 bg-bgSoft">
-      <div class="max-w-6xl mx-auto px-6 text-center">
-        <h2 class="text-2xl font-display text-brand-dark mb-12">مهارت‌ها</h2>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-          <!-- طراحی UI -->
-          <div
-            class="font-sans text-gray-700 bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
-          >
-            <h3
-              class="font-display text-brand-base text-lg mb-2 flex items-center justify-center gap-2"
-            >
+    <!-- ===== مهارت‌ها ===== -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <div class="section-title fade-in">
+          <div class="title-line"></div>
+          <h2>مهارت‌ها</h2>
+          <p>حوزه‌هایی که در آن‌ها تخصص دارم</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card fade-in">
+            <div class="skill-icon">
               <svg
-                class="w-5 h-5 text-brand-base stroke-brand-base"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                color="currentColor"
                 fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
               >
                 <path
                   d="M7.49478 13.753C10.5833 10.1644 17.5788 3.15478 20.5387 3.00445C22.3699 2.82906 18.7218 9.32547 10.0785 16.4339M11.4581 10.0449L13.7157 12.3249M3 20.8546C3.70948 18.3472 3.26187 19.5794 3.50407 16.6919C3.63306 16.2644 3.89258 14.9377 5.51358 14.2765C7.35618 13.5249 8.70698 14.6611 9.05612 15.195C10.0847 16.3102 10.2039 17.6952 9.05612 19.2774C7.9083 20.8596 4.50352 21.2527 3 20.8546Z"
-                  stroke="currentColor"
-                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                ></path>
+                />
               </svg>
-              طراحی UI
-            </h3>
-            <p class="text-sm text-gray-600">
+            </div>
+            <h3>طراحی UI</h3>
+            <p>
               تسلط بر چیدمان عناصر، فاصله‌گذاری، رنگ و روانشناسی تجربه کاربری
-              (UX).
+              (UX)
             </p>
           </div>
-
-          <!-- فتوشاپ -->
-          <div
-            class="font-sans text-gray-700 bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
-          >
-            <h3
-              class="font-display text-brand-base text-lg mb-2 flex items-center justify-center gap-2"
-            >
+          <div class="skill-card fade-in fade-in-delay-1">
+            <div class="skill-icon">
               <svg
-                class="w-5 h-5 text-brand-base stroke-brand-base"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                color="currentColor"
                 fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
               >
-                <path
-                  d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z"
-                  stroke="currentColor"
-                  stroke-width="1.5"
+                <rect
+                  x="2.5"
+                  y="2.5"
+                  width="19"
+                  height="19"
+                  rx="2.5"
                   stroke-linejoin="round"
-                ></path>
+                />
                 <path
-                  d="M6.5 16V12M6.5 12V9.125C6.5 9.00892 6.5 8.95087 6.50482 8.90198C6.55158 8.42721 6.92721 8.05158 7.40198 8.00482C7.45087 8 7.50892 8 7.625 8H9C10.1046 8 11 8.89543 11 10C11 11.1046 10.1046 12 9 12H6.5Z"
-                  stroke="currentColor"
-                  stroke-width="1.5"
+                  d="M6.5 16V12M6.5 12V9.125C6.5 9.009 6.5 8.951 6.505 8.902C6.552 8.427 6.927 8.052 7.402 8.005C7.451 8 7.509 8 7.625 8H9C10.105 8 11 8.895 11 10C11 11.105 10.105 12 9 12H6.5Z"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                ></path>
+                />
                 <path
-                  d="M17.4658 11.2225C17.2923 10.5267 16.4782 10 15.5 10C14.3954 10 13.5 10.6716 13.5 11.5C13.5 12.3284 14.3954 13 15.5 13C16.6046 13 17.5 13.6716 17.5 14.5C17.5 15.3284 16.6046 16 15.5 16C14.5183 16 13.7019 15.4696 13.5323 14.77"
-                  stroke="currentColor"
-                  stroke-width="1.5"
+                  d="M17.466 11.222C17.292 10.527 16.478 10 15.5 10C14.395 10 13.5 10.672 13.5 11.5C13.5 12.328 14.395 13 15.5 13C16.605 13 17.5 13.672 17.5 14.5C17.5 15.328 16.605 16 15.5 16C14.518 16 13.702 15.47 13.532 14.77"
                   stroke-linecap="round"
-                ></path>
+                />
               </svg>
-              Photoshop
-            </h3>
-            <p class="text-sm text-gray-600">
-              ویرایش حرفه‌ای تصاویر و ساخت عناصر گرافیکی برای رابط کاربری وب.
+            </div>
+            <h3>Photoshop</h3>
+            <p>
+              ویرایش حرفه‌ای تصاویر و ساخت عناصر گرافیکی برای رابط کاربری وب
             </p>
           </div>
-
-          <!-- سئو -->
-          <div
-            class="font-sans text-gray-700 bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
-          >
-            <h3
-              class="font-display text-brand-base text-lg mb-2 flex items-center justify-center gap-2"
-            >
+          <div class="skill-card fade-in fade-in-delay-2">
+            <div class="skill-icon">
               <svg
-                class="w-5 h-5 text-brand-base stroke-brand-base"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                color="currentColor"
                 fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
               >
                 <path
-                  d="M20.9992 10C20.9907 6.41543 20.8861 4.52814 19.6088 3.31802C18.2175 2 15.9783 2 11.5 2C7.02166 2 4.78249 2 3.39124 3.31802C2 4.63604 2 6.75736 2 11C2 15.2426 2 17.364 3.39124 18.682C4.61763 19.8438 6.50289 19.9815 10 19.9978"
-                  stroke=""
-                  stroke-width="1.5"
+                  d="M20.999 10C20.99 6.415 20.886 4.528 19.609 3.318C18.217 2 15.978 2 11.5 2C7.022 2 4.782 2 3.391 3.318C2 4.636 2 6.757 2 11C2 15.243 2 17.364 3.391 18.682C4.618 19.844 6.503 19.981 10 19.998"
                   stroke-linecap="round"
                 />
                 <path
-                  d="M15 17.5C15 17.5 15.5 17.5 16 18.5C16 18.5 17.5882 16 19 15.5"
-                  stroke=""
-                  stroke-width="1.5"
+                  d="M15 17.5C15 17.5 15.5 17.5 16 18.5C16 18.5 17.588 16 19 15.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
                 <path
-                  d="M22 17C22 19.7614 19.7614 22 17 22C14.2386 22 12 19.7614 12 17C12 14.2386 14.2386 12 17 12C19.7614 12 22 14.2386 22 17Z"
-                  stroke=""
-                  stroke-width="1.5"
+                  d="M22 17C22 19.761 19.761 22 17 22C14.239 22 12 19.761 12 17C12 14.239 14.239 12 17 12C19.761 12 22 14.239 22 17Z"
                   stroke-linecap="round"
                 />
+                <path d="M2 8.5H21" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3>بهینه‌سازی سئو</h3>
+            <p>افزایش سرعت بارگذاری، بهبود ساختار HTML و رتبه در نتایج جستجو</p>
+          </div>
+          <div class="skill-card fade-in">
+            <div class="skill-icon">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
                 <path
-                  d="M2 8.5H21"
-                  stroke=""
-                  stroke-width="1.5"
+                  d="M18 21C19.232 21 20.231 19.849 20.231 18.429C20.231 16.181 20.131 14.686 21.673 12.909C22.109 12.407 22.109 11.593 21.673 11.091C20.131 9.314 20.231 7.819 20.231 5.571C20.231 4.151 19.232 3 18 3"
+                  stroke-linecap="round"
                   stroke-linejoin="round"
                 />
                 <path
-                  d="M6.49981 5.5H6.50879"
-                  stroke=""
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M10.4998 5.5H10.5088"
-                  stroke=""
-                  stroke-width="2"
+                  d="M6 21C4.768 21 3.769 19.849 3.769 18.429C3.769 16.181 3.869 14.686 2.327 12.909C1.891 12.407 1.891 11.593 2.327 11.091C3.835 9.353 3.769 7.84 3.769 5.571C3.769 4.151 4.768 3 6 3"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
               </svg>
-              بهینه‌سازی سئو
-            </h3>
-            <p class="text-sm text-gray-600">
-              افزایش سرعت بارگذاری، بهبود ساختار HTML و رتبه در نتایج جست‌وجو.
-            </p>
+            </div>
+            <h3>افزودن کدنویسی به وردپرس</h3>
+            <p>ایجاد توابع اختصاصی، ویرایش Hookها و توسعه قابلیت‌های پویا</p>
           </div>
-
-          <!-- کدنویسی در وردپرس -->
-          <div
-            class="font-sans text-gray-700 bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
-          >
-            <h3
-              class="font-display text-brand-base text-lg mb-2 flex items-center justify-center gap-2"
-            >
+          <div class="skill-card fade-in fade-in-delay-1">
+            <div class="skill-icon">
               <svg
-                class="w-5 h-5 text-brand-base stroke-brand-base"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                color="currentColor"
                 fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
               >
                 <path
-                  d="M18 21C19.2322 21 20.231 19.8487 20.231 18.4286C20.231 16.1808 20.1312 14.6865 21.6733 12.9091C22.1089 12.407 22.1089 11.593 21.6733 11.0909C20.1312 9.31354 20.231 7.81916 20.231 5.57143C20.231 4.15127 19.2322 3 18 3"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-                <path
-                  d="M6 21C4.76784 21 3.76897 19.8487 3.76897 18.4286C3.76897 16.1808 3.86877 14.6865 2.32673 12.9091C1.89109 12.407 1.89109 11.593 2.32673 11.0909C3.83496 9.35251 3.76897 7.83992 3.76897 5.57143C3.76897 4.15127 4.76784 3 6 3"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-              </svg>
-              افزودن قابلیت کدنویسی به وردپرس
-            </h3>
-            <p class="text-sm text-gray-600">
-              ایجاد توابع اختصاصی، ویرایش Hookها و توسعه قابلیت‌های پویا برای
-              قالب‌ها و افزونه‌ها.
-            </p>
-          </div>
-
-          <!-- اسکریپت‌های پایتون -->
-          <div
-            class="font-sans text-gray-700 bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
-          >
-            <h3
-              class="font-display text-brand-base text-lg mb-2 flex items-center justify-center gap-2"
-            >
-              <svg
-                class="w-5 h-5 text-brand-base stroke-brand-base"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                color="currentColor"
-                fill="none"
-              >
-                <path
-                  d="M5.22576 11.3294L12.224 2.34651C12.7713 1.64397 13.7972 2.08124 13.7972 3.01707V9.96994C13.7972 10.5305 14.1995 10.985 14.6958 10.985H18.0996C18.8729 10.985 19.2851 12.0149 18.7742 12.6706L11.776 21.6535C11.2287 22.356 10.2028 21.9188 10.2028 20.9829V14.0301C10.2028 13.4695 9.80048 13.015 9.3042 13.015H5.90035C5.12711 13.015 4.71494 11.9851 5.22576 11.3294Z"
-                  stroke=""
-                  stroke-width="1.5"
+                  d="M5.226 11.329L12.224 2.347C12.771 1.644 13.797 2.081 13.797 3.017V9.97C13.797 10.53 14.2 10.985 14.696 10.985H18.1C18.873 10.985 19.285 12.015 18.774 12.671L11.776 21.654C11.229 22.356 10.203 21.919 10.203 20.983V14.03C10.203 13.47 9.8 13.015 9.304 13.015H5.9C5.127 13.015 4.715 11.985 5.226 11.329Z"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
               </svg>
-              اسکریپت‌های پایتون
-            </h3>
-            <p class="text-sm text-gray-600">
-              نوشتن اسکریپت‌های کوچک برای خودکارسازی وظایف و تسریع فرآیند‌های
-              روزمره کاری.
-            </p>
+            </div>
+            <h3>اسکریپت‌های پایتون</h3>
+            <p>نوشتن اسکریپت‌های کوچک برای خودکارسازی وظایف و تسریع فرآیندها</p>
+          </div>
+          <div class="skill-card fade-in fade-in-delay-2">
+            <div class="skill-icon">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M3 12h18M3 6h18M3 18h18"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h3>HTML / CSS / JS</h3>
+            <p>کدنویسی تمیز، معنایی و ریسپانسیو با تسلط بر استانداردهای روز</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="tools-languages" class="py-20 bg-white">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-2xl font-display text-brand-dark mb-12 text-center">
-          ابزارها و زبان‌ها که باهاشون کار کردم
-        </h2>
-
-        <div class="flex flex-col">
-          <!-- ابزارها -->
-          <ul
-            class="space-y-2 text-gray-700 font-sans flex flex-row flex-wrap justify-between gap-2"
-          >
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              HTML5
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              CSS3 / TailwindCSS / Bootstrap
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              JavaScript (ES6+)
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              Python
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              PHP
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              MySQL
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              Redis
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              Figma
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              Adobe Photoshop
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              WordPress
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              Laravel
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              Search Console
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              Google Analytics
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              WHM
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              Github
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              Chrome DevTools
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              Terminal
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              TagManager
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              Vscode
-            </li>
-            <li
-              class="bg-bgSoft px-4 py-2 rounded hover:bg-brand-base hover:text-white"
-            >
-              Nano
-            </li>
-          </ul>
+    <!-- ===== ابزارها و زبان‌ها ===== -->
+    <section id="tools-languages" class="section section-tinted">
+      <div class="container">
+        <div class="section-title fade-in">
+          <div class="title-line"></div>
+          <h2>ابزارها و تکنولوژی‌ها</h2>
+          <p>تکنولوژی‌هایی که باهاشون کار کردم</p>
+        </div>
+        <div class="tools-wrap fade-in">
+          <span class="tool-tag">HTML5</span>
+          <span class="tool-tag">CSS3</span>
+          <span class="tool-tag">TailwindCSS</span>
+          <span class="tool-tag">Bootstrap</span>
+          <span class="tool-tag">JavaScript (ES6+)</span>
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">PHP</span>
+          <span class="tool-tag">MySQL</span>
+          <span class="tool-tag">Redis</span>
+          <span class="tool-tag">Figma</span>
+          <span class="tool-tag">Adobe Photoshop</span>
+          <span class="tool-tag">WordPress</span>
+          <span class="tool-tag">Laravel</span>
+          <span class="tool-tag">Search Console</span>
+          <span class="tool-tag">Google Analytics</span>
+          <span class="tool-tag">WHM</span>
+          <span class="tool-tag">Github</span>
+          <span class="tool-tag">Chrome DevTools</span>
+          <span class="tool-tag">Terminal</span>
+          <span class="tool-tag">Tag Manager</span>
+          <span class="tool-tag">VS Code</span>
+          <span class="tool-tag">Nano</span>
         </div>
       </div>
     </section>
-    <section id="certificates" class="py-20 bg-bgSoft">
-      <div class="max-w-6xl mx-auto px-6">
-        <!-- عنوان بخش -->
-        <h2 class="text-2xl font-display text-brand-dark mb-12 text-center">
-          مدارک
-        </h2>
 
-        <!-- لیست مدارک -->
-        <ul
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          role="list"
-        >
-          <li
-            class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-lg transition"
-          >
+    <!-- ===== مدارک ===== -->
+    <section id="certificates" class="section section-alt">
+      <div class="container">
+        <div class="section-title fade-in">
+          <div class="title-line"></div>
+          <h2>گواهینامه‌ها</h2>
+          <p>مدارک معتبر بین‌المللی از آکادمی Google</p>
+        </div>
+        <div class="certs-grid">
+          <div class="cert-card fade-in">
             <img
               src="./images/google.png"
-              alt="Google Analytics for Beginners"
-              class="h-8 w-8 rounded-full"
+              alt="Google"
+              class="cert-icon"
               loading="lazy"
             />
-            <h3 class="text-black font-semibold ml-3 text-base">
+            <div class="cert-name">
               <a
                 href="https://analytics.google.com/analytics/academy/certificate/X7fKwZ_VTP-8V_-mlmCGYw"
                 target="_blank"
                 rel="noopener"
+                >Google Analytics for Beginners</a
               >
-                Google Analytics for Beginners
-              </a>
-            </h3>
-          </li>
-
-          <li
-            class="flex items-center p-4 bg-white justify-between rounded-lg shadow hover:shadow-lg transition"
-          >
+            </div>
+            <span class="cert-badge">Google</span>
+          </div>
+          <div class="cert-card fade-in fade-in-delay-1">
             <img
               src="./images/google.png"
-              alt="Introduction to Data Studio"
-              class="h-8 w-8 rounded-full"
+              alt="Google"
+              class="cert-icon"
               loading="lazy"
             />
-            <h3 class="text-black font-semibold ml-3 text-base">
+            <div class="cert-name">
               <a
                 href="https://analytics.google.com/analytics/academy/certificate/UsNMZbPHRPyKzoL4f0ZHLA"
                 target="_blank"
                 rel="noopener"
+                >Introduction to Data Studio</a
               >
-                Introduction to Data Studio
-              </a>
-            </h3>
-          </li>
-
-          <li
-            class="flex items-center p-4 bg-white justify-between rounded-lg shadow hover:shadow-lg transition"
-          >
+            </div>
+            <span class="cert-badge">Google</span>
+          </div>
+          <div class="cert-card fade-in fade-in-delay-2">
             <img
               src="./images/google.png"
-              alt="Google Tag Manager Fundamentals"
-              class="h-8 w-8 rounded-full"
+              alt="Google"
+              class="cert-icon"
               loading="lazy"
             />
-            <h3 class="text-black font-semibold ml-3 text-base">
+            <div class="cert-name">
               <a
                 href="https://analytics.google.com/analytics/academy/certificate/k5yUuE6qTmqnW9VqQKmz-Q"
                 target="_blank"
                 rel="noopener"
+                >Google Tag Manager Fundamentals</a
               >
-                Google Tag Manager Fundamentals
-              </a>
-            </h3>
-          </li>
-
-          <li
-            class="flex items-center p-4 bg-white justify-between rounded-lg shadow hover:shadow-lg transition"
-          >
+            </div>
+            <span class="cert-badge">Google</span>
+          </div>
+          <div class="cert-card fade-in">
             <img
               src="./images/google.png"
-              alt="Advanced Google Analytics"
-              class="h-8 w-8 rounded-full"
+              alt="Google"
+              class="cert-icon"
               loading="lazy"
             />
-            <h3 class="text-black font-semibold ml-3 text-base">
+            <div class="cert-name">
               <a
                 href="https://analytics.google.com/analytics/academy/certificate/RSubvhFnTMaC8zhJXqqoKA"
                 target="_blank"
                 rel="noopener"
+                >Advanced Google Analytics</a
               >
-                Advanced Google Analytics
-              </a>
-            </h3>
-          </li>
-
-          <li
-            class="flex items-center p-4 bg-white justify-between rounded-lg shadow hover:shadow-lg transition"
-          >
+            </div>
+            <span class="cert-badge">Google</span>
+          </div>
+          <div class="cert-card fade-in fade-in-delay-1">
             <img
               src="./images/google.png"
-              alt="Google Analytics for Power Users"
-              class="h-8 w-8 rounded-full"
+              alt="Google"
+              class="cert-icon"
               loading="lazy"
             />
-            <h3 class="text-black font-semibold ml-3 text-base">
+            <div class="cert-name">
               <a
                 href="https://analytics.google.com/analytics/academy/certificate/qDdHPKoiTQuGqoGDw3zkUg"
                 target="_blank"
                 rel="noopener"
+                >Google Analytics for Power Users</a
               >
-                Google Analytics for Power Users
-              </a>
-            </h3>
-          </li>
-
-          <li
-            class="flex items-center p-4 bg-white justify-between rounded-lg shadow hover:shadow-lg transition"
-          >
+            </div>
+            <span class="cert-badge">Google</span>
+          </div>
+          <div class="cert-card fade-in fade-in-delay-2">
             <img
               src="./images/google.png"
-              alt="Getting Started With Google Analytics 360"
-              class="h-8 w-8 rounded-full"
+              alt="Google"
+              class="cert-icon"
               loading="lazy"
             />
-            <h3 class="text-black font-semibold ml-3 text-base">
+            <div class="cert-name">
               <a
                 href="https://analytics.google.com/analytics/academy/certificate/pzRCRhdxQ3GOl_kk_UxB8A"
                 target="_blank"
                 rel="noopener"
+                >Getting Started with Google Analytics 360</a
               >
-                Google Analytics 360
-              </a>
-            </h3>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 🔹 ارتباط با من -->
-    <section id="contact" class="py-20 bg-brand-base text-white text-center">
-      <div class="max-w-4xl mx-auto px-6">
-        <h2 class="text-2xl font-display mb-6">ارتباط با من</h2>
-        <p class="font-sans text-lg mb-8">
-          می‌توانید از راه‌های زیر برای ارتباط مستقیم در پروژه‌ها یا همکاری‌ها
-          اقدام کنید:
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a
-            href="tel:+989981040774"
-            class="bg-white text-brand-base font-sans px-6 py-2 rounded hover:bg-brand-light transition"
-            >📞 تماس</a
-          >
-          <a
-            href="tel:+989395574353"
-            class="bg-white text-brand-base font-sans px-6 py-2 rounded hover:bg-brand-light transition"
-            >📞 تماس2</a
-          >
-          <a
-            href="https://t.me/iPsar"
-            target="_blank"
-            class="bg-white text-brand-base font-sans px-6 py-2 rounded hover:bg-brand-light transition"
-            >💬 تلگرام</a
-          >
-          <a
-            href="https://wa.me/989395574353"
-            target="_blank"
-            class="bg-white text-brand-base font-sans px-6 py-2 rounded hover:bg-brand-light transition"
-            >💬 واتساپ</a
-          >
-          <a
-            href="mailto:amirreza09395574353@gmail.com"
-            class="bg-white text-brand-base font-sans px-6 py-2 rounded hover:bg-brand-light transition"
-            >✉️ ایمیل</a
-          >
+            </div>
+            <span class="cert-badge">Google</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-brand-dark text-brand-light text-center py-5">
-      <p class="text-sm font-sans">
-        تمامی حقوق برای سایت امیررضا حیدری محفوظ است
-      </p>
+    <!-- ===== ارتباط ===== -->
+    <section id="contact" class="contact-section">
+      <div class="container contact-inner">
+        <h2>آماده همکاری هستم</h2>
+        <p>
+          برای پروژه‌های جدید، همکاری یا هر سوالی از راه‌های زیر تماس بگیرید
+        </p>
+        <div class="contact-links">
+          <a href="tel:+989981040774" class="contact-btn contact-btn-primary">
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-.75a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.5v1.42z"
+              />
+            </svg>
+            تماس
+          </a>
+          <a href="tel:+989395574353" class="contact-btn">
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-.75a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.5v1.42z"
+              />
+            </svg>
+            تماس ۲
+          </a>
+          <a href="https://t.me/iPsar" target="_blank" class="contact-btn">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"
+              />
+            </svg>
+            تلگرام
+          </a>
+          <a
+            href="https://wa.me/989395574353"
+            target="_blank"
+            class="contact-btn"
+          >
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+              />
+            </svg>
+            واتساپ
+          </a>
+          <a href="mailto:amirreza09395574353@gmail.com" class="contact-btn">
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            ایمیل
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>تمامی حقوق برای <span>امیررضا حیدری</span> محفوظ است · ۱۴۰۴</p>
     </footer>
+
+    <script>
+      // ===== ناوبار اسکرول =====
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 20);
+      });
+
+      // ===== منوی موبایل =====
+      const burger = document.getElementById("burger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      burger.addEventListener("click", () => {
+        burger.classList.toggle("open");
+        mobileMenu.classList.toggle("open");
+      });
+      function closeMobile() {
+        burger.classList.remove("open");
+        mobileMenu.classList.remove("open");
+      }
+
+      // ===== انیمیشن fade-in با IntersectionObserver =====
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+      );
+
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+
+      // ===== بستن منوی موبایل با کلیک خارج =====
+      document.addEventListener("click", (e) => {
+        if (!navbar.contains(e.target)) closeMobile();
+      });
+    </script>
   </body>
 </html>
